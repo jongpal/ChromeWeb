@@ -13,6 +13,7 @@ body {
     
    
 }
+
 .boss>span.bossText{
     display:grid;
     
@@ -27,6 +28,9 @@ body {
 .hide{
     display: none;
 }
+
+
+
 .works{
     text-align:center;
 }
@@ -132,9 +136,7 @@ body {
     opacity : 1;
 }
 
-.freq{
 
-}
 .freq> details> summary{
     cursor: pointer;
 }
@@ -144,4 +146,11 @@ body {
 .freq> .hereSave> a> button{
     width : 60px;
     cursor: pointer;
+}
+
+.nameForm> input{
+    all:unset;
+    border-bottom: 1px solid black;
+    font-style:italic;
+    font-family: 'Courier New', Courier, monospace;
 }

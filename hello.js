@@ -11,7 +11,7 @@ toDoBox = works.querySelector(".todolists");
 inputPlan = workToFinish.querySelector("input");
 
 
-const heyBoss = localStorage.getItem("name"); //
+let heyBoss = localStorage.getItem("name"); //
 
 
 function setKeyName(bossName){    //for distinctive todolist(identify username)
@@ -24,10 +24,12 @@ function saveName(bossName){
     localStorage.setItem("name", bossName);
 }
 
+let boxName;
 function handleSubmit(event){
     event.preventDefault();
     const bossName = inputName.value;
     setKeyName(bossName); //save the user's name for the distinctive todolists
+    boxName = setCkName(bossName);
     saveName(bossName);
     showName(bossName);
 }
@@ -120,9 +122,11 @@ function showPlan(plans,newID){
     del_btn.setAttribute("style","cursor:pointer");
     const span = document.createElement("span");
     span.innerText = plans;
-    const ckBox = document.createElement("input");
+    const ckBox = document.createElement("input"); 
     ckBox.setAttribute("type","checkbox");
     ckBox.setAttribute("style","cursor:pointer");
+    let findName = localStorage.getItem("name");
+    setCkName(findName);
     ckBox.addEventListener("change", ckBoxCheck);//if ckBox is changed  
     li.setAttribute("id", newID);
     li.appendChild(ckBox); 
@@ -160,13 +164,25 @@ else{
 
 let ckBoxList=[];
 
+let findName = localStorage.getItem("name");
+
+function setCkName(findName){
+    return `${findName}s checkbox`;
+}
+
+
+
+
 function ckBoxCheck(event){ 
     if(event.target.checked)//if it is checked 
     {
-       const getCurrentList = JSON.parse(localStorage.getItem("checked"));
+        if(localStorage.getItem(setCkName(findName)))
+        {
+       const getCurrentList = JSON.parse(localStorage.getItem(setCkName(findName)));
        ckBoxList = getCurrentList;
        //ckBoxList has to be updated every single time we call the event
        //because the List is not saving the data
+        }
        const ckBoxID = event.target.parentNode.id;//use li's id,which is the parent
                                                 //of checkBox
        const ckbox = {
@@ -175,38 +191,59 @@ function ckBoxCheck(event){
        }
            
        ckBoxList.push(ckbox); //add the object inside the List
-
        event.target.setAttribute("checked", "checked");// set "checked"
-       localStorage.setItem("checked", JSON.stringify(ckBoxList));//save the currentstate
+       if(findName === null){
+        localStorage.setItem(boxName, JSON.stringify(ckBoxList));//save the currentstate
+       }
+       else
+        localStorage.setItem(setCkName(findName),JSON.stringify(ckBoxList));
+      
     }
     else //if it is unchecked
     {
         event.target.removeAttribute("checked");//remove "checked"
-        const filtered = JSON.parse(localStorage.getItem("checked"))
+        if(findName === null){
+            console.log(JSON.parse(localStorage.getItem(boxName)));
+            const filtered = JSON.parse(localStorage.getItem(boxName))
+            .filter(function(ckbox){
+        
+                return event.target.parentNode.id !== ckbox.ckBoxID;
+                //return the checked id
+            });
+            ckBoxList = filtered; //update 
+            localStorage.setItem(boxName, JSON.stringify(ckBoxList));//and save
+        }
+        console.log(JSON.parse(localStorage.getItem(setCkName(findName))));
+        const filtered = JSON.parse(localStorage.getItem(setCkName(findName)))
         .filter(function(ckbox){
     
             return event.target.parentNode.id !== ckbox.ckBoxID;
             //return the checked id
-        })
+        });
         ckBoxList = filtered; //update 
-        localStorage.setItem("checked", JSON.stringify(ckBoxList));//and save
+        localStorage.setItem(setCkName(findName), JSON.stringify(ckBoxList));//and save
     }
 }
 
 
 function isCkBoxChecked(){ //check if the checkbox is checked or not
-                            //and memorize it in case of reload
-    const parsed = JSON.parse(localStorage.getItem("checked"));//get the list
+                        //and memorize it in case of reload
+
+    
+    const parsed = JSON.parse(localStorage.getItem(setCkName(findName)));//get the list
     parsed.forEach(function(ckbox){
         const sltdList = document.getElementById(ckbox.ckBoxID);//get the ID inside of HTML
        /* console.log(sltdList);*/
+       
         const sltdInput = sltdList.querySelector("input"); //select input inside of the list with that ID
         sltdInput.setAttribute("checked", "checked");//set "checked"
+       
         
     })
 
+
 }
-if(localStorage.getItem("checked"))
+if(localStorage.getItem(setCkName(findName)) && bossText.innerHTML !== "")
 {
     isCkBoxChecked(); 
 }
