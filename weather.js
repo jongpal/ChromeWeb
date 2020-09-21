@@ -27,7 +27,7 @@ lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`;
      const aTag = document.createElement("a");
      
      aTag.appendChild(spanCity);
-     aTag.setAttribute("href",`https://www.openstreetmap.org/edit#map=14/${lat}/${lon}`);
+     aTag.setAttribute("href",`https://www.openstreetmap.org/edit#map=14/${lat}/${lon}`); //link city to a map
      aTag.setAttribute("target","_blank");
      weather.appendChild(aTag);
      weather.appendChild(span);
