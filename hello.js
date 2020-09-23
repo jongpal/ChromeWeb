@@ -19,7 +19,7 @@ function setKeyName(bossName){    //for distinctive todolist(identify username)
 }
 
 
-function saveName(bossName){  
+function saveName(bossName){   //save name in localstorage
     
     localStorage.setItem("name", bossName);
 }
@@ -101,7 +101,7 @@ function handleDelete(event){
     const li_id = li.id;
     console.log(li_id);
     li.remove();
-    
+    console.log(setKeyName(heyBoss));
     const newToDoList = JSON.parse(localStorage.getItem(setKeyName(heyBoss))).filter(function(toDo){
         //to make a new list without deleted objects
         return toDo.id !== parseInt(li_id);
@@ -213,6 +213,7 @@ function ckBoxCheck(event){
             ckBoxList = filtered; //update 
             localStorage.setItem(boxName, JSON.stringify(ckBoxList));//and save
         }
+        else{
         console.log(JSON.parse(localStorage.getItem(setCkName(findName))));
         const filtered = JSON.parse(localStorage.getItem(setCkName(findName)))
         .filter(function(ckbox){
@@ -223,6 +224,7 @@ function ckBoxCheck(event){
         ckBoxList = filtered; //update 
         localStorage.setItem(setCkName(findName), JSON.stringify(ckBoxList));//and save
     }
+    }
 }
 
 
@@ -230,17 +232,24 @@ function isCkBoxChecked(){ //check if the checkbox is checked or not
                         //and memorize it in case of reload
 
     
+    
     const parsed = JSON.parse(localStorage.getItem(setCkName(findName)));//get the list
-    parsed.forEach(function(ckbox){
+    const filtered = parsed.filter(function(ckbox){    //update the checkbox in case of todolists be deleted or something
+        return document.getElementById(ckbox.ckBoxID) !== null;  
+    })
+    
+    filtered.forEach(function(ckbox){
+        console.log(document.getElementById('3'));
         const sltdList = document.getElementById(ckbox.ckBoxID);//get the ID inside of HTML
-       /* console.log(sltdList);*/
-       
+        
+        
         const sltdInput = sltdList.querySelector("input"); //select input inside of the list with that ID
         sltdInput.setAttribute("checked", "checked");//set "checked"
-       
         
     })
-
+    ckBoxList=filtered;
+    localStorage.setItem(setCkName(findName),JSON.stringify(ckBoxList));
+       
 
 }
 if(localStorage.getItem(setCkName(findName)) && bossText.innerHTML !== "")
@@ -252,8 +261,7 @@ else{
 }
 
 
-// successful until I can remember the result of checkbox
-// next job I should do is to recognize the User's name
-//I did only changing the name in custom to User's name
+
+
 
 

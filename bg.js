@@ -1,7 +1,7 @@
 const API = "er93eK8re71pkoaPxpHcf_pmLB5MXt5oQcxROH5eqDQ"; // api from unsplash
 
 
-let query = "london"; // set query word for background image 
+let query = "paris"; // set query word for background image 
 const unsUrl = `https://api.unsplash.com/search/photos?query=${query}&client_id
 =${API}`;
 
