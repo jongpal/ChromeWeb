@@ -84,8 +84,15 @@ function savePlan(plans, newID, heyBoss){//heyBoss for distinctive username
 function handlePlanSubmit(event){
     event.preventDefault();
     const plans = inputPlan.value;
-    const newID = toDoList.length + 1; //starts from 0
     const heyBoss = localStorage.getItem("name");
+    if(localStorage.getItem(setKeyName(heyBoss)))      //when reloading happens, put originally saved lists into the toDoList
+    {
+        const getPrevPlan = JSON.parse(localStorage.getItem(setKeyName(heyBoss)));
+        
+        toDoList = getPrevPlan;
+    }
+    const newID = toDoList.length + 1; //starts from 0
+    
     inputPlan.value=""; //to empty the input text box
     savePlan(plans,newID, heyBoss);
     showPlan(plans,newID);
@@ -237,9 +244,9 @@ function isCkBoxChecked(){ //check if the checkbox is checked or not
     const filtered = parsed.filter(function(ckbox){    //update the checkbox in case of todolists be deleted or something
         return document.getElementById(ckbox.ckBoxID) !== null;  
     })
-    
+    console.log(filtered);
     filtered.forEach(function(ckbox){
-        console.log(document.getElementById('3'));
+        
         const sltdList = document.getElementById(ckbox.ckBoxID);//get the ID inside of HTML
         
         
