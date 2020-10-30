@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>your web</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="style.css" text/css>
+  </head>
+  <body>
+    <div class="whole">
+      <div class="freq">
+        <div class="hereSave"></div>
+        <details>
+          <summary>click to add sites</summary>
+          <label for="siteName">name : </label
+          ><input
+            type="text"
+            placeholder="sitename"
+            id="siteName"
+            required="required"
+          />
+          <label for="url">url : </label
+          ><input type="text" id="url" required="required" />
+          <button class="saveResult">save</button>
+        </details>
+      </div>
+      <div></div>
+      <div class="weather"></div>
+      <div></div>
+      <div class="boss">
+        <form class="nameForm">
+          <label for="inputName" class="hide">Name</label
+          ><input
+            type="text"
+            placeholder="your name"
+            required="required"
+            id="inputName"
+          />
+        </form>
+        <span class="bossText"></span>
+      </div>
+      <div class="portpolio">
+        <div class="polio head">For Portpolio</div>
+        <div class="polio">
+          <form action="https://myscrapper.jongpal.repl.co/">
+            <button type="submit" id="naver" class="buttons_set">news Search in Naver</button>
+            <label for="naver">Go !</label>
+          </form>
+          <details><summary>what is this ?</summary>
+        Searching naver news. + you can choose date you want to see</details>
+        </div>
+        <div class="polio">
+          <form action="https://jongpal.github.io/vanillaJS/">
+            <button type="submit" id="painting" class="buttons_set">paintBoard</button>
+            <label for="painting">Go !</label>
+          </form>
+          <details><summary>what is this ?</summary>
+            simple paintboard with various function</details>
+        </div>
+        <div class="polio">
+            <details><summary>what about this site ?</summary>
+               basic chrome web, you can see current location, weather and you can add todolists. You can see current Time and you can add urls for your frequently visiting site </details>
+        </div>
+      </div>
+
+      <div></div>
+      <div class="works hide">
+        <form class="workToFinish">
+          <label for="plan" class="hide">your plan</label>😉<input
+            type="text"
+            placeholder="what's your plan today ?"
+            required="required"
+            id="plan"
+          />
+        </form>
+        <ul class="todolists"></ul>
+      </div>
+      <div class="time_date">
+        <div class="timeSpan"></div>
+        <div class="dateSpan"></div>
+      </div>
+
+      <script src="hello.js"></script>
+      <script src="time.js"></script>
+      <script src="weather.js"></script>
+      <script src="freqSite.js"></script>
+      <script src="bg.js"></script>
+    </div>
+  </body>
+</html>

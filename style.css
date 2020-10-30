@@ -1,156 +1,184 @@
 html {
-        height : 100%;
+  height: 100%;
 }
 
 body {
-    margin : 0;
-    position:absolute; top:0; bottom:0; right:0; left:0;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
 }
-.boss{
-    position: relative;
-    text-align: center;
-    font-size : 40px;
-    
-   
-}
-
-.boss>span.bossText{
-    display:grid;
-    
-    color:rgba(11, 51, 48, 0.664);
-    
-    padding-top:60px;
-    
-    font-size : 50px;
-    font-style: italic;
-    font-family : Georgia, 'Times New Roman', Times, serif;
-}
-.hide{
-    display: none;
+.boss {
+  position: relative;
+  text-align: center;
+  font-size: 40px;
 }
 
+.boss > span.bossText {
+  display: grid;
 
+  color: rgba(11, 51, 48, 0.664);
 
-.works{
-    text-align:center;
+  padding-top: 60px;
+
+  font-size: 50px;
+  font-style: italic;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
-.workToFinish>#plan{
-    color : black;
-    text-align : start;
-    all: unset;
-    width : 400px;
-    font-size: 30px;
-    font-style:italic;
-    font-family : Georgia, 'Times New Roman', Times, serif;
-    border-bottom : 1px solid black;
-    cursor: text;
-    opacity : 0.6;
-}
-#plan:hover{
-    opacity : 1;
+.hide {
+  display: none;
 }
 
-@keyframes fadeIn{
-    from{
-        opacity : 0;
-    }
-    to{
-        opacity:0.8;
-    }
+.works {
+  text-align: center;
 }
-.bgimage{
-    position: absolute;
-    top : 0;
-    left:0;
-    width:100%;
-    height:100%;
-    z-index: -1;
-    animation: fadeIn 0.5s linear;
-    opacity:0.8;
+.workToFinish > #plan {
+  color: black;
+  text-align: start;
+  all: unset;
+  width: 400px;
+  font-size: 30px;
+  font-style: italic;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  border-bottom: 1px solid black;
+  cursor: text;
+  opacity: 0.6;
 }
-.whole{
-    position: absolute;
-    top:0; bottom:0; right:0; left:0;
-    display : grid;
-    border : 1px solid white;
-    row-gap : 10px;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, auto);
-
-}
-.todolists{
-    
-    list-style-type: none;
-    border: 1px solid black;
-    background-color: rgba(246, 252, 246, 0.678);
-    border-style: none;
-    border-radius : 5px;
-    opacity : 0.3;
-    font-size:20px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    transition: opacity 1s;
-}
-.todolists:hover{
-    opacity : 1;
-    
-}
-.time_date{
-    display : flex;
-    flex-direction: column;
-    align-items: stretch;
-    justify-content: center;
-}
-.time_date>.dateSpan{
-    margin-right:30px;
-    text-align:end;
-}
-.time_date>.timeSpan{
-    margin-right: 30px;
-    font-size : 60px;
-    font-style :italic;
-    font-family : 'Courier New', Courier, monospace;
-    text-align: end;
-}
-.weather{
-    display : flex;
-    flex-direction: column;
-}
-.weather> a{
-    text-align: end;
-    margin-right : 15px;
-    margin-top : 15px;
-    text-decoration: none;
-}
-.weather > span{
-    text-align: end;
-    margin-right : 15px;
-    margin-top : 15px;
-    font-size : 20px;
-}
-.weather> a> span{
-    opacity : 0.4 ; 
-    font-size : 30px;
-    font-family : Verdana, Geneva, Tahoma, sans-serif;
-}
-.weather> a> span:hover{
-    opacity : 1;
+#plan:hover {
+  opacity: 1;
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.8;
+  }
+}
+.bgimage {
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  animation: fadeIn 0.5s linear;
+  opacity: 0.8;
+}
+.whole {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: grid;
+  border: 1px solid white;
+  row-gap: 10px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, auto);
+}
+.todolists {
+  list-style-type: none;
+  border: 1px solid black;
+  background-color: rgba(246, 252, 246, 0.678);
+  border-style: none;
+  border-radius: 5px;
+  opacity: 0.3;
+  font-size: 20px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  transition: opacity 1s;
+}
+.todolists:hover {
+  opacity: 1;
+}
+.time_date {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+}
+.time_date > .dateSpan {
+  margin-right: 30px;
+  text-align: end;
+}
+.time_date > .timeSpan {
+  margin-right: 30px;
+  font-size: 60px;
+  font-style: italic;
+  font-family: 'Courier New', Courier, monospace;
+  text-align: end;
+}
+.weather {
+  display: flex;
+  flex-direction: column;
+}
+.weather > a {
+  text-align: end;
+  margin-right: 15px;
+  margin-top: 15px;
+  text-decoration: none;
+}
+.weather > span {
+  text-align: end;
+  margin-right: 15px;
+  margin-top: 15px;
+  font-size: 20px;
+}
+.weather > a > span {
+  opacity: 0.4;
+  font-size: 30px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.weather > a > span:hover {
+  opacity: 1;
+}
 
-.freq> details> summary{
-    cursor: pointer;
+.freq > details > summary {
+  cursor: pointer;
 }
-.freq .saveResult{
-    cursor: pointer;
+.freq .saveResult {
+  cursor: pointer;
 }
-.freq> .hereSave> a> button{
-    width : 60px;
-    cursor: pointer;
+.freq > .hereSave > a > button {
+  width: 60px;
+  cursor: pointer;
 }
 
-.nameForm> input{
-    all:unset;
-    border-bottom: 1px solid black;
-    font-style:italic;
-    font-family: 'Courier New', Courier, monospace;
+.nameForm > input {
+  all: unset;
+  border-bottom: 1px solid black;
+  font-style: italic;
+  font-family: 'Courier New', Courier, monospace;
+}
+.portpolio {
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+  background-color: rgba(55, 194, 185, 0.664);
+}
+.portpolio .head {
+  font-size: 20px;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+.buttons_set {
+  all: unset;
+  cursor: pointer;
+  background-color: rgba(11, 51, 48, 0.664);
+  border-radius: 3px;
+}
+.buttons_set:hover {
+  cursor: pointer;
+  transform: scale(0.92);
+}
+details {
+  cursor: pointer;
 }
